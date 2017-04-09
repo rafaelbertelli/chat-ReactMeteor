@@ -1,16 +1,26 @@
 import React , { Component } from 'react';
 import Login from './components/Login.jsx'
+import Chat from './components/Chat.jsx';
 
 // =============
 // App Component
 // =============
 class App extends Component {
 	render() {
-		return (
-			<div>
-				<Login />
-			</div>
-		);
+		let loading = this.props.loading;
+		let currentUser = this.props.currentUser;
+
+		if(loading) {
+			return (<div className="loading">Loading...</div>);
+		} else {
+			if(currentUser) {
+				return (<Chat />);
+			} else {
+				return (<Login />);
+			}
+		}
+
+
 	}
 }
 
