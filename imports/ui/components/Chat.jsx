@@ -1,14 +1,25 @@
+import { Meteor } from 'meteor/meteor'
 import React, { Component } from 'react';
 
 class Chat extends Component {
 
+    handleLogout() {
+        Meteor.logout((e) => {
+            if(e) console.log(e);
+            else console.log('Logged Out');
+        })
+    }        
+
     render() {
+        
+        let currentUser = this.props.currentUser;
+
         return (
             <div className="chat">
                 <nav>
                     <div className="row">
-                        <div className="col-xs-6 username">Username</div>
-                        <div className="col-xs-6 logout">Logout</div>
+                        <div className="col-xs-6 username">{currentUser.username}</div>
+                        <div className="col-xs-6 logout" onClick={() => this.handleLogout()}>Logout</div>
                     </div>
                 </nav>
                 <div className="main container">
