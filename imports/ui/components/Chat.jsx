@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import React, { Component } from 'react';
+import NewMessage from './NewMessage.jsx';
+
 
 class Chat extends Component {
 
@@ -44,16 +46,8 @@ class Chat extends Component {
                             </ul>
                         </div>
                     </div>
-                    <div className="new-message row">
-                        <div className='col-lg-8 col-lg-offset-2 col-sm-12'>
-                            <div className="input-group">
-                                <input type="text" className="form-control" placeholder="New message..." />
-                                <span className="input-group-btn">
-                                    <button className="btn btn-default" type="button"><i className="fa fa-chevron-right"></i></button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <NewMessage currentUser={currentUser} />
                 </div>
             </div>
         )

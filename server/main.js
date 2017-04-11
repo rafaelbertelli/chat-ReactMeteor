@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-
+import { Message } from '../imports/api/models.js';
 // =====================
 // Meteor server startup
 // =====================
@@ -10,3 +10,4 @@ Meteor.startup(() => {
 Meteor.publish('users', () => {
   return Meteor.users.find({});
 })
+
